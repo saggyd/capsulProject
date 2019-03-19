@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
@@ -9,7 +10,9 @@ import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 export class AddTaskComponent implements OnInit {
 
   constructor() { }
-
+  onSubmit() {
+    
+  }
   ngOnInit() {
   }
 
