@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
-import {NgForm} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
@@ -9,11 +9,25 @@ import {NgForm} from '@angular/forms';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
+  taskForm:FormGroup;
+
+  constructor(private fb:FormBuilder) {}
+  
   onSubmit() {
-    
+    console.log(this.taskForm.value);
   }
+
   ngOnInit() {
+    this.createForm();
+  }
+
+  createForm = () => {
+    this.taskForm = this.fb.group({
+      task: ['', Validators.required],
+      parentTask: [''],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
+    });
   }
 
 }

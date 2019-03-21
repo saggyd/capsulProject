@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
