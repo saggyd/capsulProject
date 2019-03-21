@@ -1,5 +1,5 @@
 <div class="col-md-12 wiewTaskWrapper">
-  <div class="tableWrapper">
+  <div class="tableWrapper" *ngFor="let task of taskData">
     <div class="row header">
       <div class="col-md-3">Task</div>
       <div class="col-md-3">Parent</div>
@@ -9,79 +9,15 @@
       <div class="col-md-3"></div>
     </div>
     <div class="row tableRow">
-      <div class="col-md-3"><div class="taskbox">Task 1</div></div>
-      <div class="col-md-3"><div class="taskbox">Parent 1</div></div>
-      <div class="col-md-1">10</div>
-      <div class="col-md-1">18/03/2019</div>
-      <div class="col-md-1">19/03/2019</div>
+      <div class="col-md-3"><div class="taskbox">{{task.TASK}}</div></div>
+      <div class="col-md-3"><div class="taskbox"></div></div>
+      <div class="col-md-1">{{task.PRIORITY}}</div>
+      <div class="col-md-1">{{task.START_DATE}}</div>
+      <div class="col-md-1">{{task.END_DATE}}</div>
       <div class="col-md-3">
         <button class="btn btn-secondary">Edit</button>
         <button class="btn btn-default">End Task</button>
       </div>
     </div>
   </div>
-  <div class="tableWrapper">
-    <div class="row header">
-      <div class="col-md-3">Task</div>
-      <div class="col-md-3">Parent</div>
-      <div class="col-md-1">Priority</div>
-      <div class="col-md-1">Start</div>
-      <div class="col-md-1">End</div>
-      <div class="col-md-3"></div>
-    </div>
-    <div class="row tableRow">
-      <div class="col-md-3"><div class="taskbox">Task 1</div></div>
-      <div class="col-md-3"><div class="taskbox">Parent 1</div></div>
-      <div class="col-md-1">10</div>
-      <div class="col-md-1">18/03/2019</div>
-      <div class="col-md-1">19/03/2019</div>
-      <div class="col-md-3">
-        <button class="btn btn-secondary">Edit</button>
-        <button class="btn btn-default">End Task</button>
-      </div>
-    </div>
-  </div>
-  <div class="tableWrapper">
-    <div class="row header">
-      <div class="col-md-3">Task</div>
-      <div class="col-md-3">Parent</div>
-      <div class="col-md-1">Priority</div>
-      <div class="col-md-1">Start</div>
-      <div class="col-md-1">End</div>
-      <div class="col-md-3"></div>
-    </div>
-    <div class="row tableRow">
-      <div class="col-md-3"><div class="taskbox">Task 1</div></div>
-      <div class="col-md-3"><div class="taskbox">Parent 1</div></div>
-      <div class="col-md-1">10</div>
-      <div class="col-md-1">18/03/2019</div>
-      <div class="col-md-1">19/03/2019</div>
-      <div class="col-md-3">
-        <button class="btn btn-secondary">Edit</button>
-        <button class="btn btn-default">End Task</button>
-      </div>
-    </div>
-  </div>
-  <div class="tableWrapper">
-    <div class="row header">
-      <div class="col-md-3">Task</div>
-      <div class="col-md-3">Parent</div>
-      <div class="col-md-1">Priority</div>
-      <div class="col-md-1">Start</div>
-      <div class="col-md-1">End</div>
-      <div class="col-md-3"></div>
-    </div>
-    <div class="row tableRow">
-      <div class="col-md-3"><div class="taskbox">Task 1</div></div>
-      <div class="col-md-3"><div class="taskbox">Parent 1</div></div>
-      <div class="col-md-1">10</div>
-      <div class="col-md-1">18/03/2019</div>
-      <div class="col-md-1">19/03/2019</div>
-      <div class="col-md-3">
-        <button class="btn btn-secondary">Edit</button>
-        <button class="btn btn-default">End Task</button>
-      </div>
-    </div>
-  </div>
-  
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { FormControl } from '@angular/forms';
 
@@ -15,12 +15,16 @@ export class SliderComponent implements OnInit {
     floor: 0,
     ceil: 30
   };
+
+  @Output() valueChange = new EventEmitter();
+
   constructor() {
     
    }
 
   changeHandler(value: number): void {
     console.log(value);
+    this.valueChange.emit(value);
   }
   
   ngOnInit() {

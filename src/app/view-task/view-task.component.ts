@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-view-task',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor() { }
+  taskData = [];
+  constructor(private configService: ConfigService) { }
 
   ngOnInit() {
+    this.configService.getConfig()
+    .subscribe((data) => {
+      this.taskData = data;
+    });
   }
 
 }
