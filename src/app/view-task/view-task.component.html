@@ -15,7 +15,7 @@
       <div class="col-md-1">{{task.START_DATE}}</div>
       <div class="col-md-1">{{task.END_DATE}}</div>
       <div class="col-md-3">
-        <button class="btn btn-secondary">Edit</button>
+        <button class="btn btn-secondary" (click)="updateHandler($event,task)">Edit</button>
         <button class="btn btn-default">End Task</button>
       </div>
     </div>

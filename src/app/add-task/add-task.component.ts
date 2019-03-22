@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { ConfigService } from '../services/config.service';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-add-task',
@@ -12,7 +13,12 @@ export class AddTaskComponent implements OnInit {
 
   taskForm:FormGroup;
   sliderValue:number;
-  constructor(private fb:FormBuilder,private configService: ConfigService) {}
+  statusFlag:boolean = false;
+  constructor(private fb:FormBuilder,
+              private configService: ConfigService,
+              private sessionService: SessionService) {
+                
+              }
   
   onSubmit() {
     let newData = {
@@ -30,6 +36,11 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    console.log('task object',this.sessionService.storage);
+    if(this.sessionService.storage) {
+      this.loadFormData();
+      this.statusFlag = true;
+    }
   }
 
   displayChanged(value) {
@@ -45,4 +56,25 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
+  loadFormData() {
+    this.taskForm.patchValue({
+      task: this.sessionService.storage.TASK,
+      startDate: this.sessionService.storage.START_DATE,
+      endDate: this.sessionService.storage.END_DATE
+    });
+  }
+
+  onUpdate() {
+    let newData = {
+      TASK_ID: this.sessionService.storage.TASK_ID,
+      PARENT_ID: this.sessionService.storage.PARENT_ID,
+      TASK: this.taskForm.value.task,
+      START_DATE: this.taskForm.value.startDate,
+      END_DATE: this.taskForm.value.endDate,
+      PRIORITY: this.sliderValue
+    }
+    this.configService.updateTask(newData, this.sessionService.storage._id).subscribe(res=>{
+      this.sessionService.storage = null;
+    });
+  }
 }

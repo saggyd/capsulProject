@@ -12,13 +12,11 @@ import { AppComponent } from './app.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
-import { UpdateTaskComponent } from './update-task/update-task.component';
 import { SliderComponent } from './component/slider/slider.component';
 
 const appRoutes: Routes = [
   { path: 'addTask', component: AddTaskComponent },
   { path: 'viewTask',      component: ViewTaskComponent },
-  { path: 'updateTask', component: UpdateTaskComponent },
   { path: '', redirectTo: '/addTask', pathMatch: 'full' }
 ];
 
@@ -28,7 +26,6 @@ const appRoutes: Routes = [
     AppComponent,
     AddTaskComponent,
     ViewTaskComponent,
-    UpdateTaskComponent,
     SliderComponent
   ],
   imports: [

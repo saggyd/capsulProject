@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../services/config.service';
+import { SessionService } from '../services/session.service';
+import {Router, NavigationExtras} from "@angular/router";
 
 @Component({
   selector: 'app-view-task',
@@ -9,13 +11,21 @@ import { ConfigService } from '../services/config.service';
 export class ViewTaskComponent implements OnInit {
 
   taskData = [];
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, 
+              private sessionService: SessionService,
+              private router: Router) { }
 
   ngOnInit() {
     this.configService.getConfig()
-    .subscribe((data) => {
+    .subscribe((data:any) => {
       this.taskData = data;
     });
+  }
+
+  updateHandler(event,updatedVal) {
+    console.log(updatedVal);
+    this.sessionService.storage = updatedVal;
+    this.router.navigate(["addTask"]);
   }
 
 }
