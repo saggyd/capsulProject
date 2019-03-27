@@ -20,3 +20,12 @@
 .tableRow button {
     margin-right: 10px;
 }
+
+.searchFormWrapper {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 15px;
+}
+
+.searchFormWrapper .row  {
+    margin-bottom: 20px;
+}

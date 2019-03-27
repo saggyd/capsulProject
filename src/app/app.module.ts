@@ -13,6 +13,8 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { SliderComponent } from './component/slider/slider.component';
+import { FilterPipe} from './pipe//filter.pipe';
+import {CalendarModule} from 'primeng/calendar';
 
 const appRoutes: Routes = [
   { path: 'addTask', component: AddTaskComponent },
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     AddTaskComponent,
     ViewTaskComponent,
-    SliderComponent
+    SliderComponent,
+    FilterPipe
   ],
   imports: [
     NgbModule,
@@ -41,6 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     Ng5SliderModule,
     HttpClientModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

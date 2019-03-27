@@ -16,28 +16,26 @@
     <div class="form-group">
       <label class="control-label col-sm-4">Priority:</label>
       <div class="col-sm-8"> 
-        <app-slider (valueChange)='displayChanged($event)'></app-slider>
+        <app-slider [slideValue]="slideValue" (valueChange)='displayChanged($event)'></app-slider>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="sdate">Start Date:</label>
       <div class="col-sm-8">
-        <input type="text" id="sdate" class="date-field" placeholder="Enter Start Date" formControlName="startDate"/>
-        <!--<input type="text" ngbDatepicker id="sdate" #d="ngbDatepicker" class="date-field" placeholder="Enter Start Date" formControlName="startDate"/>-->
+        <p-calendar dateFormat="dd/mm/yy" formControlName="startDate" (onSelect)="startDateHandler()"></p-calendar>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="edate">End Date:</label>
       <div class="col-sm-8"> 
-        <!--<input type="text" ngbDatepicker id="edate" #d="ngbDatepicker" class="date-field" placeholder="Enter End Date" formControlName="endDate"/>-->
-        <input type="text" id="edate" class="date-field" placeholder="Enter End Date" formControlName="endDate"/>
+        <p-calendar dateFormat="dd/mm/yy" formControlName="endDate" (onSelect)="endDateHandler()"></p-calendar>
       </div>
     </div>
     <div class="form-group button-wrapper"> 
       <div class="col-sm-offset-2 col-sm-10">
         <button *ngIf="!statusFlag" type="submit" class="btn btn-Primary pull-right" (click)="onSubmit()">Submit</button>
         <button *ngIf="statusFlag" type="submit" class="btn btn-Primary pull-right" (click)="onUpdate()">Update</button>
-        <button type="submit" class="btn btn-default pull-right">Reset</button>
+        <button type="submit" class="btn btn-default pull-right" (click)="resetForm()">Reset</button>
       </div>
     </div>
   </form>

@@ -28,4 +28,8 @@ export class ConfigService {
     let options = { headers: headers };
     return this.http.put(this.configUrl+'/'+id, task, options);
   }
+
+  deleteTask(id) {
+    return this.http.delete(this.configUrl+'/'+id);
+  }
 }
